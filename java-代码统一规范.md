@@ -16,7 +16,7 @@
 #### Acknowledgement [Alibaba p3c](https://github.com/alibaba/p3c)
 
 ## 2. Code Formatter
-统一使用 `java-eclipse-formatter.xml` 文件进行代码格式化，默认该文件位于每个 Java 项目 `_guide` 目录下。
+统一使用 [java-eclipse-formatter.xml](./java-eclipse-formatter.xml) 文件进行代码格式化，默认该文件位于每个 Java 项目 `_guide` 目录下。
 
 #### idea IDE
 [Eclipse Code Formatter-plugin-install ](https://plugins.jetbrains.com/plugin/6546-eclipse-code-formatter)
