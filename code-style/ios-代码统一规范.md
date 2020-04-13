@@ -3,6 +3,8 @@
 ## 前言
 由于是多人协同开发, 为了便于后期项目的扩展维护及 CodeReview, 除了好的设计框架外, 良好的编码习惯也极为重要, 能大量减少开发人员的时间成本. 在我看来, 好的代码首先要保证代码逻辑清晰, 然后再考虑简洁、 扩展、 重用等问题. 逻辑清晰的代码几乎不需要注释来说明, 但鉴于每个人的编程习惯不同, 为了加速团队成员间的协同开发, 建议在自我觉得定义模糊或命名不清晰处还是做好标注工作. 请使用 #pragma #warning #TODO // 等来做好注释说明.
 
+* 编码规范参考 [苹果官方规范文档 ](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html#//apple_ref/doc/uid/10000146-SW1)
+* 可以借鉴该篇博客: [翻译自官方文档 ](https://www.jianshu.com/p/e399e023d049)
 
 ## 常量
  在常量的使用上,尽量使用类型常量,而不是使用宏定义.比如: 要定义一个字符串常量,可以写成:
