@@ -4,3 +4,6 @@
 
 ## 版本管理规范
 关于 git 提交信息规范请阅读 [git-commit](./git-commit-统一规范.md)，git 常用命令及 SSH-Key 配置参考 [git-常用命令](./git-常用命令.md)
+
+## 项目管理规范
+[项目管理](./project/项目管理.md)
