@@ -71,91 +71,24 @@ release/v1.0.1
 - 测试人员在 release 测试通过后，负责人再将代码发布到 master 供测试人员测试
 - 测试人员在 master 测试通过后，研发人员需要删除 feature/版本号-功能点这个分支
 
-#### 修复测试环境 Bug
-- 如果开发工时 < 2h，直接在 develop 开发，否则就要创建 feature 分支，流程与新需求加入的流程一致。
-
 #### 修改预上线环境 Bug
 - 在 release 测试出现了 Bug，首先要确认 develop 分支是否同样存在这个问题
 - 如果存在，release 分支回滚到前一个版本，修复流程和修复测试环境 Bug 流程一致
 - 如果不存在，这种可能性比较少，大部分是数据兼容问题，环境配置问题等
+
 #### 修改正式环境 Bug
 - 在 master 测试出现了 Bug，首先把 master 分支回滚到前一个版本保证线上没有问题，
 - 确认 release 和 develop 分支是否同样存在这个问题，如果存在，修复流程 与 修复测试环境 Bug 流程一致。
 - 如果不存在，这种可能性也比较少，大部分是数据兼容问题，环境配置问题等
 
 #### 紧急修复正式环境 Bug
-- 如果 release 分支存在未测试完毕的需求，就基于 master 创建 hotfix-xxx 分支，修复完毕后发布到 master 验证，验证完毕后，将 master 代码合并到 release 和 develop 分支，同时删掉 hotfix-xxx 分支
-- 如果 release 分支不存在未测试完毕的需求，但 develop 分支存在未测试完毕的需求，就基于 release 创建 hotfix-xxx 分支，修复完毕后发布到 release 验证，后面流程与上线流程一致，验证完毕后，将 master 代码合并到 develop 分支，同时删掉 hotfix-xxx 分支
+- 如果 release 分支存在未测试完毕的需求，就基于 master 创建 hotfix 分支，修复完毕后发布到 master 验证，验证完毕后，将 master 代码合并到 release 和 develop 分支，同时删掉 hotfix 分支
+- 如果 release 分支不存在未测试完毕的需求，但 develop 分支存在未测试完毕的需求，就基于 release 创建 hotfix 分支，修复完毕后发布到 release 验证，后面流程与上线流程一致，验证完毕后，将 master 代码合并到 develop 分支，同时删掉 hotfix 分支
 - 如果 release 和 develop 分支都不存在未测试完毕的需求，流程与修复测试环境 Bug 流程一致
-
-### 4.分支管理常用命令（合并到常用命令中）
-```shell
-#origin 就是一个名字，它是在你 clone 一个托管在 Github 上代码库时，git 为你默认创建的指向这个远程代码库的标签.ps : 远程库也可以改叫其他名字 origin 是可以改的
-#origin 指向的是 repository(知识库,远程仓库)，master 只是这个 repository 中默认创建的第一个 branch。当你 git push 的时候因为 origin 和 master 都是默认创建的，所以可以这样省略
-
-#关联远程仓库
-git remote add origin git@github…….git
-
-#取消本地目录下关联的远程库, 重新关联其他仓库执行上面操作
-git remote remove origin
-
-#查看本地分支
-git branch
-
-#查看远程分支
-git branch -r
-
-#查看本地分支与远程分支
-git branch -a
-
-#创建本地分支
-git branch branchname
-git checkout -b branchname
-
-#有时候删除远程分支会报 git delete remotes: remote refs do not exist 错误信息, 提示远程分支不存在
-#原因是我们用 git fetch 保存到本地的缓存信息而已, 只需要先执行一下 git fetch -p origin 命令即可
-
-#删除本地分支
-git branch -d branchname
-
-#删除本地暂存分支
-git branch -dr origin/branchname
-
-#删除远程分支
-git push origin :branchname
-
-#删除远程分支
-git push origin --delete branchname
-
-#创建一个分支并关联远程分支的完整流程
-# 1. 创建本地分支
-git branch branchname
-
-#2. 切换到分支 branchname
-git checkout branchname
-
-# 1 和 2 可以合成一步 创建并切换到新分支
-git checkout -b branchname
-
-#3. 推送本地分支到远程库
-git push origin branchname
-
-#4.建立远程连接,然后就可以 pull 和 push 了
-git branch --set-upstream-to origin/branchname
-
-#3 和 4 可以合并成一步 推送本地分支到远程库,分支名一模一样,并同时建立连接
-#这种方式更通用
-git push -u origin branchname
-
-#git push --set-upstream-to origin/branchname 和 git push -u origin branchname 的区别
-- 如果我们本地 dev 分支需要关联远程库 , 第一种方式如果远程没有 dev 分支, 会报错关联不起
-- 第二种方式 , 如果没有就会创建一个 dev 的远程分支然后再关联
-- 推荐使用第二种,也是比较常用的
-```
 
 ## 四、Git 提交信息规范
 
-参考 [git-commit-统一规范.md](./git-commit-统一规范.md)
+参考 [git-commit-统一规范.md](git-commit-统一规范.md)
 
 ## 五、工具推荐
 

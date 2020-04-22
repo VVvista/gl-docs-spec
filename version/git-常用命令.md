@@ -231,6 +231,71 @@ Enter passphrase for key '/Users/liwei/.ssh/id_rsa_github_my':
 Hi GourdErwa! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
+## 分支管理常用命令
+```shell
+#origin 就是一个名字，它是在你 clone 一个托管在 Github 上代码库时，git 为你默认创建的指向这个远程代码库的标签.ps : 远程库也可以改叫其他名字 origin 是可以改的
+#origin 指向的是 repository(知识库,远程仓库)，master 只是这个 repository 中默认创建的第一个 branch。当你 git push 的时候因为 origin 和 master 都是默认创建的，所以可以这样省略
+
+#关联远程仓库
+git remote add origin git@github…….git
+
+#取消本地目录下关联的远程库, 重新关联其他仓库执行上面操作
+git remote remove origin
+
+#查看本地分支
+git branch
+
+#查看远程分支
+git branch -r
+
+#查看本地分支与远程分支
+git branch -a
+
+#创建本地分支
+git branch branchname
+git checkout -b branchname
+
+#有时候删除远程分支会报 git delete remotes: remote refs do not exist 错误信息, 提示远程分支不存在
+#原因是我们用 git fetch 保存到本地的缓存信息而已, 只需要先执行一下 git fetch -p origin 命令即可
+
+#删除本地分支
+git branch -d branchname
+
+#删除本地暂存分支
+git branch -dr origin/branchname
+
+#删除远程分支
+git push origin :branchname
+
+#删除远程分支
+git push origin --delete branchname
+
+#创建一个分支并关联远程分支的完整流程
+# 1. 创建本地分支
+git branch branchname
+
+#2. 切换到分支 branchname
+git checkout branchname
+
+# 1 和 2 可以合成一步 创建并切换到新分支
+git checkout -b branchname
+
+#3. 推送本地分支到远程库
+git push origin branchname
+
+#4.建立远程连接,然后就可以 pull 和 push 了
+git branch --set-upstream-to origin/branchname
+
+#3 和 4 可以合并成一步 推送本地分支到远程库,分支名一模一样,并同时建立连接
+#这种方式更通用
+git push -u origin branchname
+
+#git push --set-upstream-to origin/branchname 和 git push -u origin branchname 的区别
+- 如果我们本地 dev 分支需要关联远程库 , 第一种方式如果远程没有 dev 分支, 会报错关联不起
+- 第二种方式 , 如果没有就会创建一个 dev 的远程分支然后再关联
+- 推荐使用第二种,也是比较常用的
+```
+
 ## 术语表
 
 - HEAD：代表你当前的工作目录。使用 git checkout 可移动 HEAD 指针到不同的分支、标记 (tags) 或提交
