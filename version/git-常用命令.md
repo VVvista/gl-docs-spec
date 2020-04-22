@@ -1,6 +1,3 @@
-> 专栏原创出处：[github-源笔记文件 ](https://github.com/GourdErwa/review-notes/tree/master/language/java-puzzle) ，欢迎 Star，转载请附上原文出处链接和本声明。
-
-[toc]
 ## 使用前的配置
 
 **检查你的配置**
