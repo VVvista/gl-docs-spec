@@ -5,7 +5,7 @@
 遵循 [语义化版本 2.0.0](https://semver.org/lang/zh-CN/)
 
 ## 三、Git Flow 控制流程约定
-<img src="https://nvie.com/img/git-model@2x.png" alt="git-flow" style="zoom:50%;" />
+<img src="https://nvie.com/img/git-model@2x.png" alt="git-flow" style="zoom:30%;" />
 
 ### 1.分支命名规范
 分支命名
