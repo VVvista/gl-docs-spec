@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<profiles version="12">
-    <profile kind="CodeFormatterProfile" name="P3C-CodeStyle" version="13">
+<profiles version="1">
+    <profile kind="CodeFormatterProfile" name="GL-CodeStyle" version="1">
         <!--可变参数的... Idea 没有对应的配置项，强制 insert-->
         <setting id="org.eclipse.jdt.core.formatter.insert_space_after_ellipsis" value="insert"/>
         <!--枚举值之间 Idea 没有对应的配置项，强制 insert-->

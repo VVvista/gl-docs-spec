@@ -1,7 +1,6 @@
 # Java 开发环境准备
 
 ## 配置 OpenJDK 环境变量
-
 [AdoptOpenJDK-8](https://adoptopenjdk.net/)
 
 ## 项目构建：Gradle
@@ -25,7 +24,7 @@ git config --global user.email "[email address]"
 ## Idea 工具
 
 ### 配置格式化模板
-参考 [java-代码统一规范](java-代码统一规范.md)
+参考 [java-代码统一规范](java-开发规范.md)
 
 ### 配置头部注释
 设置 -> File and Code Templates -> Includes ，对应 Header 配置为
@@ -37,7 +36,13 @@ git config --global user.email "[email address]"
  */
 ```
 ### 推荐插件
+插件地址-[JetBrains Plugins Repository](https://plugins.jetbrains.com/)
+
 - Alibaba Java Coding Guidelines
 - Lombok
 - SonarLint
-
+- [RestfulToolkit](https://plugins.jetbrains.com/plugin/10292-restfultoolkit)
+- [类调用时序图：SequenceDiagram for IntelliJ IDEA](https://plugins.jetbrains.com/plugin/8286-sequencediagram/)
+- [Mybatis 插件集合：MyBatisCodeHelperPro](https://plugins.jetbrains.com/plugin/9837-mybatiscodehelperpro)
+- [控制台日志 高亮：Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console/)
+- [Kubernetes](https://plugins.jetbrains.com/plugin/10485-kubernetes)
