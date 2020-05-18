@@ -45,8 +45,8 @@
 - 公开的类和方法必须有 javadoc，其他类和方法以及覆盖自父类的方法无需 javadoc。
 
 ## 代码样式规范
-- 使用 [java-eclipse-formatter.xml](java-eclipse-formatter.xml) 文件进行代码格式化，默认该文件位于每个 Java 项目 `/_guide` 目录下。
-- 使用 [java-eclipse.importorder](java-eclipse.importorder) 文件指定包引入顺序，默认该文件位于每个 Java 项目 `/_guide` 目录下。
+- 使用 [java-eclipse-formatter.xml](java-eclipse-formatter.xml) 文件进行代码格式化，默认该文件位于每个 Java 项目 `/_tool/resources/` 目录下。
+- 使用 [java-eclipse.importorder](java-eclipse.importorder) 文件指定包引入顺序，默认该文件位于每个 Java 项目 `/_tool/resources/` 目录下。
 
 ## 单元测试规范
 
