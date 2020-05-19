@@ -1,5 +1,5 @@
 ## 一、版本控制规范概述
-无特殊说明，项目默认使用 [Git](https://git-scm.com/) 作为版本控制系统，内部平台使用 [GitLab](http://dev-git.gaolvzongheng.com/) 进行仓库建设，项目分支管理规范采用 [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) 模型（具体项目根据实际情况调整）。
+无特殊说明，项目默认使用 [Git](https://git-scm.com/) 作为版本控制系统，内部平台使用GitLab进行仓库建设，项目分支管理规范采用 [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) 模型（具体项目根据实际情况调整）。
 
 ## 二、版本号约定
 遵循 [语义化版本 2.0.0](https://semver.org/lang/zh-CN/)
@@ -17,9 +17,8 @@
 - release/{YOUR-NAME}-{YYYYMMDD}-分支名称
 - hotfix/{YOUR-NAME}-{YYYYMMDD}-分支名称
 
-> {YOUR-NAME}：为开发者真实姓名全拼小写。{YYYYMMDD}：新建分支日期
-
 ```shell
+# {YOUR-NAME}：为开发者真实姓名全拼小写。{YYYYMMDD}：新建分支日期
 # 分支命名示例
 master
 develop
@@ -27,10 +26,9 @@ develop
 feature/liwei-20200501-shop
 feature/liwei-20200502-user
 
-hotfix/liwei-20200503-v1.0.0
+hotfix/v1.0.0
 
-release/liwei-20200501-v1.0.0
-release/liwei-20200501-v1.0.1
+release/v1.0.0
 ```
 ### 2. 分支详情
 #### master
@@ -67,7 +65,7 @@ release/liwei-20200501-v1.0.1
 ### 3. 工作中遇到的开发场景
 
 #### 新需求
-- 创建一个 feature/版本号-功能点的分支，如果 存在 未测试完毕的需求，就基于 master 创建，否则就基于 develop 创建
+- 创建一个 feature 功能点的分支，如果存在未测试完毕的需求，就基于 master 创建，否则就基于 develop 创建
 - 开发完成后将代码合并到 develop 供测试人员测试
 - 测试人员在 develop 测试通过后，负责人再将代码发布到 release 供测试人员测试
 - 测试人员在 release 测试通过后，负责人再将代码发布到 master 供测试人员测试
@@ -87,6 +85,28 @@ release/liwei-20200501-v1.0.1
 - 如果 release 分支存在未测试完毕的需求，就基于 master 创建 hotfix 分支，修复完毕后发布到 master 验证，验证完毕后，将 master 代码合并到 release 和 develop 分支，同时删掉 hotfix 分支
 - 如果 release 分支不存在未测试完毕的需求，但 develop 分支存在未测试完毕的需求，就基于 release 创建 hotfix 分支，修复完毕后发布到 release 验证，后面流程与上线流程一致，验证完毕后，将 master 代码合并到 develop 分支，同时删掉 hotfix 分支
 - 如果 release 和 develop 分支都不存在未测试完毕的需求，流程与修复测试环境 Bug 流程一致
+
+## 四、常用环境
+- DEV 环境：用于开发者调试使用。
+- FAT 环境：功能验收测试环境，用于测试环境下的软件测试者测试使用。
+- UAT 环境：用户验收测试环境，用于生产环境下的软件测试者测试使用。
+- PRO 环境：就是生产环境。
+
+---
+
+比如，项目域名为：http://www.abc.com，那么相关环境的域名可这样配置：
+- DEV 环境：本地配置虚拟域名即可
+- FAT 环境：http://fat.abc.com
+- UAT 环境：http://uat.abc.com
+- PRO 环境：http://www.abc.com
+
+| 分支    | 名称         | 环境 | 可访问 |
+| :------ | :------------ | :---- | :------ |
+| master  | 主分支       | PRO  | 是     |
+| release | 预上线分支   | UAT  | 是     |
+| hotfix  | 紧急修复分支 | DEV  | 否     |
+| develop | 测试分支     | DEV  | 是     |
+| feature | 需求开发分支 | DEV  | 否     |
 
 ## 四、Git 提交信息规范
 

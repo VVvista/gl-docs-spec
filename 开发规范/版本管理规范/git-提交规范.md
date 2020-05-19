@@ -1,7 +1,4 @@
-# 约定式提交 1.0.0-beta.1
-
 ## 一、概述
-
 约定式提交规范是一种基于提交消息的轻量级约定。
 它提供了一组用于创建清晰的提交历史的简单规则；
 这使得编写基于规范的自动化工具变得更容易。
@@ -20,9 +17,17 @@
 <footer>
 ```
 
-一个简单的示例：
+简单的示例：
 ```
 feat(module:user): 添加用户模块
+
+[可选的 body]
+
+Closes #123, #245, #992
+```
+
+```
+feat: 添加用户模块
 
 [可选的 body]
 
@@ -37,16 +42,16 @@ Closes #123, #245, #992
 
 用于说明本次 commit 的类别，只允许使用下面标识
 
-- feat - 新功能（feature）
-- fix - 修补 bug
-- docs - 文档（documentation）
-- style -  格式（不影响代码运行的变动）
-- refactor - 重构（即不是新增功能，也不是修改 bug 的代码变动）
-- build - 修改了系统构建或者第三方依赖（比如：Maven、Gradle、Npm、gulp...）
-- ci - 修改了 ci 配置文件（比如：Travis，Circle...）
-- revert - 撤销以前的提交记录
-- test - 增加测试
-- chore - 构建过程或辅助工具的变动
+- `feat:` - 新功能（feature）
+- `fix:` - 修补 bug
+- `docs:` - 文档（documentation）
+- `style:` -  格式（不影响代码运行的变动）
+- `refactor:` - 重构（即不是新增功能，也不是修改 bug 的代码变动）
+- `build:` - 修改了系统构建或者第三方依赖（比如：Maven、Gradle、Npm、gulp...）
+- `ci:` - 修改了 ci 配置文件（比如：Travis，Circle...）
+- `revert:` - 撤销以前的提交记录
+- `test:` - 增加测试
+- `chore:` - 构建过程或辅助工具的变动
 
 注意:
 如果 type 为 feat 和 fix，则该 commit 将肯定出现在 Change log 之中。其他情况（docs、chore、style、refactor、test）由你决定，要不要放入 Change log，建议是不要。
@@ -131,18 +136,8 @@ closes issue #12
 
 约定式提交规范受到了 [Angular 提交准则 ](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit) 的启发，并在很大程度上以其为依据。
 
-该规范的首个草案来自下面这些项目中若干贡献者们的协作：
-
-* [conventional-changelog](https://github.com/conventional-changelog/conventional-changelog) ：一套从 git 历史中解析出约定式提交说明的工具。
-* [parse-commit-message](https://github.com/olstenlarck/parse-commit-message) ：兼容规范的解析工具，可以将给定提交信息的字符串解析成对象，结果形如 `{ header: { type, scope, subject }, body, footer }`。
-* [bumped](https://bumped.github.io) ：一个用于发布软件的工具，可以在为你的软件发布新版本前后轻松地执行操作。
-* [unleash](https://github.com/netflix/unleash) ：一个用于自动化软件发行和发布生命周期的工具。
-* [lerna](https://github.com/lerna/lerna) ：一个用于管理宏仓库（monorepo）的工具，源自 Babel 项目。
-
 ## 用于约定式提交的工具
 * [jetbrains-plugin-9861-git-commit-template](https://plugins.jetbrains.com/plugin/9861-git-commit-template) ：idea git-commit-template 提交插件
-
-![idea-git-commit-template](./_images/idea-git-commit-template.png)
 
 * [changelog-generator](https://marketplace.visualstudio.com/items?itemName=axetroy.vscode-changelog-generator) ：vs-code 插件
 * [php-commitizen](https://github.com/damianopetrungaro/php-commitizen) ：一个用于创建遵循约定式提交规范提交信息的工具。
