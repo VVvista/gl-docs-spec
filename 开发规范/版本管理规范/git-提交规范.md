@@ -137,8 +137,7 @@ closes issue #12
 约定式提交规范受到了 [Angular 提交准则 ](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit) 的启发，并在很大程度上以其为依据。
 
 ## 用于约定式提交的工具
-* [jetbrains-plugin-9861-git-commit-template](https://plugins.jetbrains.com/plugin/9861-git-commit-template) ：idea git-commit-template 提交插件
-
+* [IDEA-Git Commit Template](https://plugins.jetbrains.com/plugin/9861-git-commit-template)
 * [changelog-generator](https://marketplace.visualstudio.com/items?itemName=axetroy.vscode-changelog-generator) ：vs-code 插件
 * [php-commitizen](https://github.com/damianopetrungaro/php-commitizen) ：一个用于创建遵循约定式提交规范提交信息的工具。
 可配置，并且可以作为 composer 依赖项用于 PHP 项目，或可在非 PHP 项目中全局使用。
