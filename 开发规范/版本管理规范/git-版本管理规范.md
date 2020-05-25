@@ -13,18 +13,18 @@
 - develop
 
 分支前缀命名
-- feature/{YOUR-NAME}-{YYYYMMDD}-分支名称
-- release/{YOUR-NAME}-{YYYYMMDD}-分支名称
-- hotfix/{YOUR-NAME}-{YYYYMMDD}-分支名称
+- feature/{YOUR-NAME}-分支名称
+- release/{YOUR-NAME}-分支名称
+- hotfix/{YOUR-NAME}-分支名称
 
 ```shell
-# {YOUR-NAME}：为开发者真实姓名全拼小写。{YYYYMMDD}：新建分支日期
+# {YOUR-NAME}：为开发者真实姓名全拼小写。
 # 分支命名示例
 master
 develop
 
-feature/liwei-20200501-shop
-feature/liwei-20200502-user
+feature/liwei-shop
+feature/liwei-user
 
 hotfix/v1.0.0
 
@@ -108,7 +108,7 @@ release/v1.0.0
 | develop | 测试分支     | DEV  | 是     |
 | feature | 需求开发分支 | DEV  | 否     |
 
-## 四、Git 提交信息规范
+## 四、Git 提交规范
 
 参考 [git-提交规范.md](git-提交规范.md)
 
