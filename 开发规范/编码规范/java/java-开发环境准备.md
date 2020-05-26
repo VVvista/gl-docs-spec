@@ -3,7 +3,6 @@
 ## 配置 OpenJDK 环境变量
 [AdoptOpenJDK-8](https://adoptopenjdk.net/)
 
-
 ## 版本管理：git
 安装参考 [git-scm](https://git-scm.com/download)
 
@@ -51,3 +50,7 @@ git config --global user.email "[email address]"
 - [Idea-Jenkins Control Plugin](https://plugins.jetbrains.com/plugin/6110-jenkins-control-plugin)
 - [Docker-Docker for Java Developers](https://github.com/docker/labs/tree/master/developer-tools/java)
 - [Docker-Live Debugging Java with Docker](https://github.com/docker/labs/tree/master/developer-tools/java-debugging)
+
+## 变更代码提交
+- 本地进行代码静态检测 [Alibaba Java Coding Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) 、 [SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
+- 格式化 
