@@ -33,7 +33,7 @@ git config --global user.email "[email address]"
 /**
  * 描述：
  *
- * @author 『开发者名字』 by ${DATE}
+ * @author {姓名拼音全拼} by ${DATE}
  */
 ```
 ### 工具推荐
