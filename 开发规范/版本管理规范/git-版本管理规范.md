@@ -87,26 +87,26 @@ release/v1.0.0
 - 如果 release 和 develop 分支都不存在未测试完毕的需求，流程与修复测试环境 Bug 流程一致
 
 ## 四、常用环境
-- DEV 环境：用于开发者调试使用。
-- FAT 环境：功能验收测试环境，用于测试环境下的软件测试者测试使用。
-- UAT 环境：用户验收测试环境，用于生产环境下的软件测试者测试使用。
-- PRO 环境：就是生产环境。
+- dev 环境：用于开发者调试使用。
+- fat 环境：功能验收测试环境，用于测试环境下的软件测试者测试使用。
+- uat 环境：用户验收测试环境，用于生产环境下的软件测试者测试使用。
+- pro 环境：就是生产环境。
 
 ---
 
 比如，项目域名为：http://www.abc.com，那么相关环境的域名可这样配置：
-- DEV 环境：本地配置虚拟域名即可
-- FAT 环境：http://fat.abc.com
-- UAT 环境：http://uat.abc.com
-- PRO 环境：http://www.abc.com
+- dev 环境：本地配置虚拟域名即可
+- fat 环境：http://fat.abc.com
+- uat 环境：http://uat.abc.com
+- pro 环境：http://www.abc.com
 
 | 分支    | 名称         | 环境 | 可访问 |
 | :------ | :------------ | :---- | :------ |
-| master  | 主分支       | PRO  | 是     |
-| release | 预上线分支   | UAT  | 是     |
-| hotfix  | 紧急修复分支 | DEV  | 否     |
-| develop | 测试分支     | DEV  | 是     |
-| feature | 需求开发分支 | DEV  | 否     |
+| master  | 主分支       | pro  | 是     |
+| release | 预上线分支   | uat  | 是     |
+| hotfix  | 紧急修复分支 | dev  | 否     |
+| develop | 测试分支     | dev  | 是     |
+| feature | 需求开发分支 | dev  | 否     |
 
 ## 四、Git 提交规范
 
