@@ -90,15 +90,16 @@ release/v1.0.0
 - dev          环境：用于开发者调试使用。
 - test         环境：测试稳定环境。
 - stage{1..n}  环境：测试临时环境，需要多个特性测试时，启动的多套环境。
+- pre          环境：预上线环境。
 - prod         环境：就是生产环境。
-
 ---
 
-比如，项目域名为：http://www.galvzongheng.com，那么相关环境的域名可这样配置：
+比如，项目域名为：https://www.gaolvzongheng.com，那么相关环境的域名可这样配置：
 - dev         环境：http://www.dev.gaolvzongheng.com
-- test        环境：http://www.test.abc.com
-- stage{1..n} 环境：http://www.stage1.abc.com
-- prod        环境：http://www.abc.com
+- test        环境：http://www.test.gaolvzongheng.com
+- stage{1..n} 环境：http://www.stage1.gaolvzongheng.com
+- pre         环境: http://www.pre.gaolvzongheng.com
+- prod        环境：https://www.gaolvzongheng.com
 
 | 分支    | 名称         | 环境 | 可访问 |
 | :------ | :------------ | :---- | :------ |
@@ -117,4 +118,3 @@ release/v1.0.0
 - [gitkraken Git 客户端 ](https://www.gitkraken.com/)
 - [Sourcetree Git 客户端 ](https://www.sourcetreeapp.com/)
 - [A successful Git branching model](https://nvie.com/posts/a-successful-git-branching-model/)
-
