@@ -87,18 +87,18 @@ release/v1.0.0
 - 如果 release 和 develop 分支都不存在未测试完毕的需求，流程与修复测试环境 Bug 流程一致
 
 ## 四、常用环境
-- dev 环境：用于开发者调试使用。
-- fat 环境：功能验收测试环境，用于测试环境下的软件测试者测试使用。
-- uat 环境：用户验收测试环境，用于生产环境下的软件测试者测试使用。
-- pro 环境：就是生产环境。
+- dev          环境：用于开发者调试使用。
+- test         环境：测试稳定环境。
+- stage{1..n}  环境：测试临时环境，需要多个特性测试时，启动的多套环境。
+- prod         环境：就是生产环境。
 
 ---
 
-比如，项目域名为：http://www.abc.com，那么相关环境的域名可这样配置：
-- dev 环境：本地配置虚拟域名即可
-- fat 环境：http://fat.abc.com
-- uat 环境：http://uat.abc.com
-- pro 环境：http://www.abc.com
+比如，项目域名为：http://www.galvzongheng.com，那么相关环境的域名可这样配置：
+- dev         环境：http://www.dev.gaolvzongheng.com
+- test        环境：http://www.test.abc.com
+- stage{1..n} 环境：http://www.stage1.abc.com
+- prod        环境：http://www.abc.com
 
 | 分支    | 名称         | 环境 | 可访问 |
 | :------ | :------------ | :---- | :------ |
