@@ -1,7 +1,7 @@
 # Java 开发环境准备
 
 ## 配置 OpenJDK 环境变量
-[AdoptOpenJDK-8](https://adoptopenjdk.net/)
+[AdoptOpenJDK-11-HotSpot](https://adoptopenjdk.net/)
 
 ## 版本管理：git
 安装参考 [git-scm](https://git-scm.com/download)

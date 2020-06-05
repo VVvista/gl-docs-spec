@@ -91,7 +91,7 @@ release/v1.0.0
 - test         环境：测试稳定环境。
 - stage{1..n}  环境：测试临时环境，需要多个特性测试时，启动的多套环境。
 - pre          环境：预上线环境。
-- prod         环境：就是生产环境。
+- prod         环境：生产环境。
 ---
 
 比如，项目域名为：https://www.gaolvzongheng.com，那么相关环境的域名可这样配置：
@@ -104,7 +104,7 @@ release/v1.0.0
 | 分支    | 名称         | 环境 | 可访问 |
 | :------ | :------------ | :---- | :------ |
 | master  | 主分支       | pro  | 是     |
-| release | 预上线分支   | uat  | 是     |
+| release | 预上线分支   | pre  | 是     |
 | hotfix  | 紧急修复分支 | dev  | 否     |
 | develop | 测试分支     | dev  | 是     |
 | feature | 需求开发分支 | dev  | 否     |
