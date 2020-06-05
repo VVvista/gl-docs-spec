@@ -69,8 +69,3 @@
 - 精确断言，尽量不使用`not`，`containsString`断言。
 - 测试用例的真实值应名为为 actualXXX，期望值应命名为 expectedXXX。
 - 测试类和`@Test`标注的方法无需 javadoc。
-
-## 插件
-- [p3c-idea-plugin-install](https://github.com/alibaba/p3c/blob/master/idea-plugin/README.md)
-- [p3c-eclipse-plugin-install](https://github.com/alibaba/p3c/blob/master/eclipse-plugin/README.md)
-- [Eclipse Code Formatter-plugin-install ](https://plugins.jetbrains.com/plugin/6546-eclipse-code-formatter)

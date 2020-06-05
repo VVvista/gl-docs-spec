@@ -1,9 +1,9 @@
 # Java 开发环境准备
 
-## 配置 OpenJDK 环境变量
-[AdoptOpenJDK-11-HotSpot](https://adoptopenjdk.net/)
+## 一、配置基础环境
+- [AdoptOpenJDK-11-HotSpot](https://adoptopenjdk.net/)
 
-## 版本管理：git
+## 二、版本管理：git
 安装参考 [git-scm](https://git-scm.com/download)
 
 **配置 git**
@@ -16,10 +16,11 @@ git config --global user.name "[name]"
 git config --global user.email "[email address]"
 ```
 
-## Idea 工具
+## 三、Idea 工具
 
 ### 配置格式化模板
-我们推荐下载当前项目至本地，下载安装格式化插件 [Idea-EclipseCodeFormatter](https://plugins.jetbrains.com/plugin/index?xmlId=EclipseCodeFormatter) , 
+我们推荐下载当前项目至本地，下载安装格式化插件 [Idea-EclipseCodeFormatter](https://plugins.jetbrains.com/plugin/index?xmlId=EclipseCodeFormatter) ，
+配置针对我们项目组的 profile->gl，所有项目选择该 profile 即可。
 
 - 使用 [java-eclipse-formatter.xml](java-eclipse-formatter.xml) 文件进行代码格式化。
 
@@ -28,7 +29,7 @@ git config --global user.email "[email address]"
 ![EclipseCodeFormatter](../../../_images/EclipseCodeFormatter.png)
 
 ### 配置头部注释
-设置 -> File and Code Templates -> Includes ，对应 Header 配置为
+Preferences -> File and Code Templates -> Includes ，对应 Header 配置为
 ```
 /**
  * 描述：
@@ -36,7 +37,20 @@ git config --global user.email "[email address]"
  * @author {姓名拼音全拼} by ${DATE}
  */
 ```
-### 工具推荐
+
+## 四、变更代码提交前工作
+### 本地进行代码静态检测-阿里编码规约 
+安装插件 [Alibaba Java Coding Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) ，
+开启实时扫描 `Tools -> 阿里编码规约 -> 打开实时扫描`，手动分析右键分析内容->SonarLint。
+
+### 本地进行代码静态检测-SonarLint
+[SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
+开启自动分析 `Preferences -> Tools -> SonarLint -> 勾选 Automatically trigger analysis`，手动分析右键分析内容->编码规约扫描。
+
+### 格式化
+格式化配置参考『Idea 工具-配置格式化模板』内容，保证代码格式一致性。
+
+## 工具推荐
 - JetBrains 官方插件地址-[JetBrains Plugins Repository](https://plugins.jetbrains.com/)
 - [Idea-Lombok](https://plugins.jetbrains.com/plugin/6317-lombok)
 - [Idea-代码检测：Alibaba Java Coding Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines)
@@ -50,7 +64,3 @@ git config --global user.email "[email address]"
 - [Idea-Jenkins Control Plugin](https://plugins.jetbrains.com/plugin/6110-jenkins-control-plugin)
 - [Docker-Docker for Java Developers](https://github.com/docker/labs/tree/master/developer-tools/java)
 - [Docker-Live Debugging Java with Docker](https://github.com/docker/labs/tree/master/developer-tools/java-debugging)
-
-## 变更代码提交
-- 本地进行代码静态检测 [Alibaba Java Coding Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) 、 [SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
-- 格式化 
