@@ -16,7 +16,7 @@
 */.classpath
 */.project
 
-# node
-.
-node_modules/*
+
+# node.js
+/node_modules/
 package-lock.json
