@@ -44,7 +44,7 @@ Preferences -> File and Code Templates -> Includes ，对应 Header 配置为
 开启实时扫描 `Tools -> 阿里编码规约 -> 打开实时扫描`，手动分析右键分析内容->SonarLint。
 
 ### 本地进行代码静态检测-SonarLint
-[SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint)
+安装插件 [SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint) ，
 开启自动分析 `Preferences -> Tools -> SonarLint -> 勾选 Automatically trigger analysis`，手动分析右键分析内容->编码规约扫描。
 
 ### 格式化
