@@ -43,9 +43,15 @@ Preferences -> File and Code Templates -> Includes ，对应 Header 配置为
 安装插件 [Alibaba Java Coding Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) ，
 开启实时扫描 `Tools -> 阿里编码规约 -> 打开实时扫描`，手动分析右键分析内容->SonarLint。
 
+### 本地进行代码静态检测-Analyze
+> Idea 自带，阿里编码规约默认集成到该检测中
+
+- 代码检测 Analyze -> Inspect Code
+- 矩阵依赖分析 Analyze -> Dependency Matrix 良好的代码依赖应该为「倒三角模式」
+
 ### 本地进行代码静态检测-SonarLint
 安装插件 [SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint) ，
-开启自动分析 `Preferences -> Tools -> SonarLint -> 勾选 Automatically trigger analysis`，手动分析右键分析内容->编码规约扫描。
+开启自动分析 `Preferences -> Tools -> SonarLint -> 勾选 Automatically trigger analysis`，手动分析右键分析内容-> 编码规约扫描。
 
 ### 格式化
 格式化配置参考『Idea 工具-配置格式化模板』内容，保证代码格式一致性。
