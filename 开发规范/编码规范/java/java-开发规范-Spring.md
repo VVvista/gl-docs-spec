@@ -21,5 +21,7 @@ application-pro.yml
 ```
 
 ## 创建新 SpringBoot 项目流程
+- 开启 Swagger UI ，以模块进行接口划分
+
 
 ## FAQ

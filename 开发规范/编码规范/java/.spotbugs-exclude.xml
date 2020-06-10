@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 使用 spotbugs-maven 插件进行代码静态检测，该文件配置检测中忽略 BUG 及相关检测内容
+https://spotbugs.readthedocs.io/en/latest/maven.html
+
+xsd 约束：https://github.com/spotbugs/spotbugs/blob/master/spotbugs/etc/findbugsfilter.xsd
+-->
+<FindBugsFilter>
+    <!-- BUG-CODE: https://spotbugs.readthedocs.io/en/stable/bugDescriptions.html -->
+    <Match>
+        <!-- USBR_UNNECESSARY_STORE_BEFORE_RETURN
+        lombok 默认生成 hashcode 方法最终 return 前进行变量赋值，默认不进行检测
+        -->
+        <Bug code="USBR"/>
+    </Match>
+
+    <Match>
+        <!-- USFW_UNSYNCHRONIZED_SINGLETON_FIELD_WRITES
+        针对初始化默认不进行同步处理
+        -->
+        <Bug code="USFW"/>
+    </Match>
+</FindBugsFilter>
