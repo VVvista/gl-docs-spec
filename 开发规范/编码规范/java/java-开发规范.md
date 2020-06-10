@@ -1,5 +1,5 @@
 
-## 开发理念
+## 一、开发理念
 
 - **用心** 保持责任心和敬畏心，以工匠精神持续雕琢。
 - **可读** 代码无歧义，通过阅读而非调试手段浮现代码意图。
@@ -9,7 +9,7 @@
 - **抽象** 层次划分清晰，概念提炼合理。保持方法、类、包以及模块处于同一抽象层级。
 - **极致** 拒绝随意，保证任何一行代码、任何一个字母、任何一个空格都有其存在价值。
 
-## 代码提交行为规范
+## 二、代码提交行为规范
 
 - 确保通过全部测试用例，确保执行`./mvnw clean install`可以编译和测试通过。
 - 确保覆盖率不低于 master 分支。
@@ -17,7 +17,24 @@
 - 应尽量将设计精细化拆分；做到小幅度修改，多次数提交，但应保证提交的完整性。
 - 确保遵守编码规范。
 
-## 编码规范
+### 本地进行代码静态检测-Analyze
+> Idea 自带，阿里编码规约默认集成到该检测中
+
+- 代码检测 Analyze -> Inspect Code
+- 矩阵依赖分析 Analyze -> Dependency Matrix 良好的代码依赖应该为「倒三角模式」
+
+### 本地进行代码静态检测-阿里编码规约 
+安装插件 [Alibaba Java Coding Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) ，
+开启实时扫描 `Tools -> 阿里编码规约 -> 打开实时扫描`，手动分析右键分析内容->SonarLint。
+
+### 本地进行代码静态检测-SonarLint
+安装插件 [SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint) ，
+开启自动分析 `Preferences -> Tools -> SonarLint -> 勾选 Automatically trigger analysis`，手动分析右键分析内容-> 编码规约扫描。
+
+### 格式化
+格式化配置参考『java-开发环境准备』内容，保证代码样式一致性。
+
+## 三、编码规范
 编码规范遵从于《阿里巴巴 JAVA 开发规约》，参考 [Alibaba-Java-Coding-Guidelines](https://alibaba.github.io/Alibaba-Java-Coding-Guidelines)
 
 - 使用 Linux 换行符。
@@ -36,7 +53,7 @@
 - 成员变量定义顺序以及参数传递顺序在各个类和方法中保持一致。
 - 类和方法的访问权限控制为最小。
 - 方法所用到的私有方法应紧跟该方法，如果有多个私有方法，书写私有方法应与私有方法在原方法的出现顺序相同。
-- 方法入参和返回值不允许为`null`。如果必须为 `null`，请使用 `@Nullable` 注解标识。
+- 方法入参和返回值不允许为`null`。如果必须为 `null`，请使用 `@Nullable` 注解标识或者使用 `Optional<T>`。
 - 优先使用三目运算符代替 if else 的返回和赋值语句。
 - 优先使用 [lombok](https://projectlombok.org) 代替构造器，getter, setter 方法和 log 变量。
 - 优先考虑使用`LinkedList`，只有在需要通过下标获取集合中元素值时再使用`ArrayList`。
@@ -44,11 +61,10 @@
 - 注释只能包含 javadoc，todo 和 fixme。
 - 公开的类和方法必须有 javadoc，其他类和方法以及覆盖自父类的方法无需 javadoc。
 
-## 代码样式规范
-- 使用 [java-eclipse-formatter.xml](java-eclipse-formatter.xml) 文件进行代码格式化。
-- 使用 [java-eclipse.importorder](java-eclipse.importorder) 文件指定包引入顺序。
+## 四、代码样式规范
+格式化配置参考『java-开发环境准备』内容
 
-## 单元测试规范
+## 五、单元测试规范
 
 - 测试代码和生产代码需遵守相同代码规范。
 - 单元测试需遵循 AIR（Automatic, Independent, Repeatable）设计理念。
