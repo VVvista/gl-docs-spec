@@ -24,10 +24,10 @@ Q: 为什么设定了多种检测工具？
 A: 每种类型工具侧重点不同，我们使用多种工具最终的目的就是产出高质量优质代码，从基本的坏味道代码到性能问题逐步优化。
 
 Q: 检测的标准是什么？
-A: 除 Spotbugs 作为编译期强制进行检测外（目前不强制编译期检测），其余作为辅助检测，对于个人能处理的检测结果尽量处理，对于部分比较苛刻的检测规则可忽略。
+A: 除 Spotbugs 作为编译期强制进行检测外（目前不强制编译期检测），其余作为辅助检测，对于个人能处理的检测结果**尽量处理**，对于部分比较苛刻的检测规则可忽略。
 
 Q: 忽略的规则如何统一？
-A: 通过 GitLab 申请忽略检测 [gl-docs-spec/issues](https://dev-git.gaolvzongheng.com/glzh-docs/gl-docs-spec/issues) ,申请标题 [忽略检测-java-{BUG-CODE}]。
+A: 通过 GitLab 申请忽略检测 [gl-docs-spec/issues](https://dev-git.gaolvzongheng.com/glzh-docs/gl-docs-spec/issues) ,申请标题 [忽略检测-java-{检测类型}-{BUG-CODE}]。
 
 **1.1 Idea-Analyze**
 
@@ -48,7 +48,9 @@ A: 通过 GitLab 申请忽略检测 [gl-docs-spec/issues](https://dev-git.gaolvz
 
 **1.4 Spotbugs**
 
-查看 [spotbugs-exclude.xml](.spotbugs-exclude.xml) 文档注释介绍。
+使用方法参考 [.spotbugs-gaolv-java](.spotbugs-gaolv-java.xml) 文档注释介绍。
+
+我们在 CI 构建中默认集成了 SonarQube 扫描，规则主要为 spotbugs + SonarLint，侧重于「Bugs」「漏洞扫描」「坏味道」扫描，请在正式提交代码前本地执行扫描后再提交。
 
 ### 2. 格式化
 格式化配置参考『java-开发环境准备』内容，保证代码样式一致性。
