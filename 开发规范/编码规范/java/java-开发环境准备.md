@@ -2,6 +2,7 @@
 
 ## 一、配置基础环境
 - [AdoptOpenJDK-11-HotSpot](https://adoptopenjdk.net/)
+- Maven 3.0+ ，推荐使用 idea 自带
 
 ## 二、版本管理：git
 安装参考 [git-scm](https://git-scm.com/download)
