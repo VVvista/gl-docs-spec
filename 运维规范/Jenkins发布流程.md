@@ -19,54 +19,60 @@ Jenkins jobs 在 Jenkins 所对应的目录下，对应 gitlab 的 project, 对�
 ```bash
 # 目录/Job，Job 名称和 gitlab 的 project 对应
 jenkins ops/ansible  --> gitlab glzh/ops/ansible
+# 如果多级的话只对应二级组
+jenkins backend/gl-id-center --> gitlab  glzh/backend/basic-services/gl-id-center
 ```
 
 ## Jenkins 创建流水线规范
 
 Jenkins 流水线类型，选择 `多分支流水线` , 触发通过 Jenkinsfile, 添加完成之后记得在分支源里 Default 字段，选择不通过 SCM 自动触发。
 
+![jenkins](../_images/ops/jenkins/jenkins01.jpg)
 
-## Dockerfile
 
-### Java 示例
+## 后端服务发布
 
-在项目的主路径下创建名称为 Dockerfle 的文件,内容如下:
+准备 `Dockerfile` 和 `Jenkinsfile`，内容如下:
+
+### Dockerfile
+
+在项目的主路径下创建名称为 Dockerfle 的文件,内容如下, **直接复制就行不用修改**:
 
 ```bash
-# 指定 jdk 镜像
-FROM openjdk:11
+FROM swr.cn-north-4.myhuaweicloud.com/glzh-library/java:11
 
-# 运行的工作目录
 WORKDIR /app
 
-# 将 jar 包考入 docker 镜像中
 COPY *.jar app.jar
+
+ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -Dspring.profiles.active=$SPRING_PROFILES_ACTIVE -Djava.security.egd=file:/dev/./urandom -jar app.jar"]
 ```
 
-## Jenkinsfile
-
-### Java 示例
+### Jenkinsfile
 
 在项目的主路径下创建名称为 Jenkinsfile 的文件,内容如下
 
 ```groovy
-// 引入 jenkins 共享库
+// 指定默认共享库，无需修改
 @Library('devops') _
 
 // 指定 maven pom.xml 路径, 默认 pom.xml
 env.POM = 'pom.xml'
 
+// 指定 dockerfile 名称，默认 Dockerfile
+env.DOCKER_FILE = 'Dockerfile'
+
 // 指定 java 版本
 env.JAVA_VERSION = 11
 
-// 指定模块相对路径,默认为代码父目录
-env.MODULE_PATH = 'gl-lost-bootstrap'
+// 指定模块相对路径，如果 target/ 目录是当前目录写 '.'
+env.MODULE_PATH = 'module_name'
 
-// 指定 dockerfile 名称
-env.DOCKER_FILE = 'Dockerfile'
+// 指定服务名称，需要发布的服务名称
+env.SERVICE_NAME = 'service_name'
 
-// 指定构建镜像名称, 例如 docker.io/library/name:v1 中的 name 字段
-env.IMAGE_NAME = 'gl-lost-bootstrap'
+// 指定服务监听端口
+env.SERVICE_PORT= '8080'
 
 // 指定镜像版本
 env.IMAGE_TAG = '4.0'
@@ -75,15 +81,49 @@ env.IMAGE_TAG = '4.0'
 buildJava()
 ```
 
-## 触发 CI 构建流程
+**注意修改**
 
-目前所有的分支都可以纳入 Jenkins Job 中，触发 Push 镜像的流水线为 Develop 分支，目前可以使用手动点击触发构建
+- **SERVICE_NAME**：如果不修改可能替换别人服务的镜像
+- **SERVICE_PORT**：如果不修改服务一定无限重启，并且无法访问
+
+### 自动发布
+
+Jenkins 创建完账号之后找到自己项目，对应的路径为：
+
+```bash
+/backend/project_name/develop
+```
+
+进入之后,确认项目和分支正确，点击构建:
+
+![](../_images/ops/jenkins/jenkins02.jpg)
 
 
-## 权限管理
+> 之前有一步确认 yaml 部署集群的操作，现在取消了。
 
-目前手动创建账号和分配项目构建权限
 
-##  CD 持续部署
+构建完毕之后直访问 `http://SERVICE_NAME.dev.gaolvzongheng.com`，即可访问自己的服务。
 
-暂未实现
+
+### 后端发布流程
+
+```
++-------+     +---------------+     +-------------------------+
+| Build | --> | Sonar Scanner | --> |   Build Docker Image    |
++-------+     +---------------+     +-------------------------+
+                                      |
+                                      |
+                                      v
+                                    +-------------------------+
+                                    |       Push Image        |
+                                    +-------------------------+
+                                      |
+                                      |
+                                      v
+                                    +-------------------------+     +-----------------+     +---------------+
+                                    | Check k8s yaml Template | --> | Commit k8s yaml | --> | Deploy to Dev |
+                                    +-------------------------+     +-----------------+     +---------------+
+```
+
+
+
