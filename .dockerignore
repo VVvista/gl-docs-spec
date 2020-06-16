@@ -1,0 +1,4 @@
+nginx/
+Dockerfile
+Jenkinsfile
+.git/

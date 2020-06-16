@@ -41,23 +41,9 @@ pipeline {
                  echo "${GIT_GROUP_NAME}"
              }
          }
-         stage('Create Build Workspace') {
-             steps {
-                 sh """
-                     mkdir -p buildImage
-                     cp ${DOCKER_FILE} buildImage
-                     cp -r  * buildImage
-                     rm -rf buildImage/.git|true
-                     rm -rf buildImage/nginx
-                     rm -f  buildImage/Jenkinsfile
-                     cp -r nginx buildImage
-                 """
-              }
-         }
          stage('Build Image') {
              steps {
                  sh """
-                     cd buildImage
                      docker build -t ${IMG_PREFIX}/${SERVICE_NAME}:${GIT_COMMIT_SHORT} -f ${DOCKER_FILE} .
                      docker tag ${IMG_PREFIX}/${SERVICE_NAME}:${GIT_COMMIT_SHORT} ${IMG_PREFIX}/${SERVICE_NAME}:${IMAGE_TAG}
                  """
