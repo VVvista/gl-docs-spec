@@ -23,9 +23,9 @@ git config --global user.email "[email address]"
 我们推荐下载当前项目至本地，下载安装格式化插件 [Idea-EclipseCodeFormatter](https://plugins.jetbrains.com/plugin/index?xmlId=EclipseCodeFormatter) ，
 配置针对我们项目组的 profile->gl，所有项目选择该 profile 即可。
 
-- 使用 [java-eclipse-formatter.xml](java-eclipse-formatter.xml) 文件进行代码格式化。
+- 使用 [java-eclipse-formatter.xml](编码规范/java/java-eclipse-formatter.xml) 文件进行代码格式化。
 
-- 使用 [java-eclipse.importorder](java-eclipse.importorder) 文件指定包引入顺序。
+- 使用 [java-eclipse.importorder](编码规范/java/java-eclipse.importorder) 文件指定包引入顺序。
 
 ![EclipseCodeFormatter](../../../_images/EclipseCodeFormatter.png)
 

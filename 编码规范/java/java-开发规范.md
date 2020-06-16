@@ -48,7 +48,7 @@ A: 通过 GitLab 申请忽略检测 [gl-docs-spec/issues](https://dev-git.gaolvz
 
 **1.4 Spotbugs**
 
-使用方法参考 [.spotbugs-gaolv-java](.spotbugs-gaolv-java.xml) 文档注释介绍。
+使用方法参考 [.spotbugs-gaolv-java](编码规范/java/.spotbugs-gaolv-java.xml) 文档注释介绍。
 
 我们在 CI 构建中默认集成了 SonarQube 扫描，规则主要为 spotbugs + SonarLint，侧重于「Bugs」「漏洞扫描」「坏味道」扫描，请在正式提交代码前本地执行扫描后再提交。
 

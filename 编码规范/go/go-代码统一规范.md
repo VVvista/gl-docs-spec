@@ -17,4 +17,4 @@ setting->Tools->File Watchers 选择 gofmt
 
 ### VS Code
 
-请使用 [go-vscode.gofmt.settings.json](go-vscode.gofmt.settings.json) 文件
+请使用 [go-vscode.gofmt.settings.json](编码规范/go/go-vscode.gofmt.settings.json) 文件
