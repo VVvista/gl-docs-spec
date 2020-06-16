@@ -45,7 +45,6 @@ pipeline {
              steps {
                  sh """
                      docker build -t ${IMG_PREFIX}/${SERVICE_NAME}:${GIT_COMMIT_SHORT} -f ${DOCKER_FILE} .
-                     docker tag ${IMG_PREFIX}/${SERVICE_NAME}:${GIT_COMMIT_SHORT} ${IMG_PREFIX}/${SERVICE_NAME}:${IMAGE_TAG}
                  """
               }
          }
@@ -53,7 +52,6 @@ pipeline {
              steps {
                  sh """
                      docker push ${IMG_PREFIX}/${SERVICE_NAME}:${GIT_COMMIT_SHORT}
-                     docker push ${IMG_PREFIX}/${SERVICE_NAME}:${IMAGE_TAG}
                  """
               }
          }
