@@ -46,7 +46,7 @@ pipeline {
                  sh """
                      mkdir -p buildImage
                      cp ${DOCKER_FILE} buildImage
-                     cp -r  . buildImage
+                     cp -r  * buildImage
                      rm -rf buildImage/.git|true
                      rm -rf buildImage/nginx
                      rm -f  buildImage/Jenkinsfile
