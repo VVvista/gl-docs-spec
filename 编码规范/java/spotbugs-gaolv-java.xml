@@ -3,11 +3,13 @@
 官方文档：https://spotbugs.readthedocs.io/en/latest/maven.html
 xsd 约束：https://github.com/spotbugs/spotbugs/blob/master/spotbugs/etc/findbugsfilter.xsd
 
-## 如何使用
+## 使用 maven 插件进行扫描
 拷贝该文件到需要检测的项目根目录。
 执行检测：mvn spotbugs:check
 检测结果位于每个模块 ${project.build.directory}/spotbugs-site 目录，请格式化后阅读，或者使用 mvn spotbugs:gui 采用 UI 方式查看（MAC 高版本无法打开）
 
+## 使用 SpotBugs idea 插件进行扫描
+具体参考 「java-开发环境准备.md」内容。
 -->
 <FindBugsFilter>
     <Match>
