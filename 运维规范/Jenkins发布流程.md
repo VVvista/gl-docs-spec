@@ -30,7 +30,27 @@ Jenkins 流水线类型，选择 `多分支流水线` , 触发通过 Jenkinsfile
 ![jenkins](../_images/ops/jenkins/jenkins01.jpg)
 
 
-## 后端服务发布
+## 自动化发布流程
+
+```
++-------+     +---------------+     +-------------------------+
+| Build | --> | Sonar Scanner | --> |   Build Docker Image    |
++-------+     +---------------+     +-------------------------+
+                                      |
+                                      |
+                                      v
+                                    +-------------------------+
+                                    |       Push Image        |
+                                    +-------------------------+
+                                      |
+                                      |
+                                      v
+                                    +-------------------------+     +-----------------+     +---------------+
+                                    | Check k8s yaml Template | --> | Commit k8s yaml | --> | Deploy to Dev |
+                                    +-------------------------+     +-----------------+     +---------------+
+```
+
+## 后端服务配置
 
 准备 `Dockerfile` 和 `Jenkinsfile`，内容如下:
 
@@ -86,12 +106,71 @@ buildJava()
 - **SERVICE_NAME**：如果不修改可能替换别人服务的镜像
 - **SERVICE_PORT**：如果不修改服务一定无限重启，并且无法访问
 
-### 自动发布
+
+
+## 前端服务配置
+
+准备 `Dockerfile` 和 `Jenkinsfile` 和 `nginx/default.conf`，内容如下:
+
+### Dockerfile
+
+```bash
+FROM swr.cn-north-4.myhuaweicloud.com/glzh-library/nginx:1.18
+
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
+
+# dist 为前端编译的输出目录
+COPY dist/ /var/www/html
+```
+
+### Jenkinsfile
+
+```bash
+@Library('devops') _
+
+// 指定编译输出目录
+env.BUILD_PATH = 'dist'
+
+// 指定 dockerfile 名称
+env.DOCKER_FILE = 'Dockerfile'
+
+// 指定构建镜像名称 docker.io/library/name:v1 中的 name 字段
+env.SERVICE_NAME = 'fe-ci-example'
+
+// 指定镜像版本
+env.IMAGE_TAG = '1.0.1'
+
+// 指定构建方法
+buildNodeJS()
+```
+
+### nginx 配置
+
+`nginx/default.conf` ：
+```
+server {
+    listen       80;
+    server_name  _;
+
+    charset utf-8;
+
+    location / {
+        root   /var/www/html;
+        index  index.html index.htm;
+    }
+}
+```
+
+**注意修改**
+
+- **SERVICE_NAME**：如果不修改可能替换别人服务的镜像
+
+## 自动发布
 
 Jenkins 创建完账号之后找到自己项目，对应的路径为：
 
 ```bash
-/backend/project_name/develop
+/backend|frontend/project_name/develop
 ```
 
 进入之后,确认项目和分支正确，点击构建:
@@ -103,27 +182,3 @@ Jenkins 创建完账号之后找到自己项目，对应的路径为：
 
 
 构建完毕之后直访问 `http://SERVICE_NAME.dev.gaolvzongheng.com`，即可访问自己的服务。
-
-
-### 后端发布流程
-
-```
-+-------+     +---------------+     +-------------------------+
-| Build | --> | Sonar Scanner | --> |   Build Docker Image    |
-+-------+     +---------------+     +-------------------------+
-                                      |
-                                      |
-                                      v
-                                    +-------------------------+
-                                    |       Push Image        |
-                                    +-------------------------+
-                                      |
-                                      |
-                                      v
-                                    +-------------------------+     +-----------------+     +---------------+
-                                    | Check k8s yaml Template | --> | Commit k8s yaml | --> | Deploy to Dev |
-                                    +-------------------------+     +-----------------+     +---------------+
-```
-
-
-

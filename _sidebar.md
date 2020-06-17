@@ -16,6 +16,7 @@
 * 运维规范
 ** [Docker镜像规范](运维规范/Docker镜像规范.md)
 ** [GitLab故障恢复](运维规范/GitLab故障恢复.md)
+** [Jenkins发布流程](运维规范/Jenkins发布流程.md)
 
 * 项目规范
     * [文档规范](项目规范/文档规范.md)
