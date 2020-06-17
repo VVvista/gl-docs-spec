@@ -24,8 +24,8 @@
 | 运维     | go-      |
 
 ## 其他命名
-包名：`com.gaolv.{服务}`
-groupId：`com.gaolv`
-artifactId：{服务名}
+- 包名：`com.gaolv.{服务}`
+- groupId：`com.gaolv`
+- artifactId：{服务名}
         
 

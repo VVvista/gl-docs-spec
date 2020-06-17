@@ -23,34 +23,41 @@
 Q: 为什么设定了多种检测工具？
 A: 每种类型工具侧重点不同，我们使用多种工具最终的目的就是产出高质量优质代码，从基本的坏味道代码到性能问题逐步优化。
 
-Q: 检测的标准是什么？
-A: 除 Spotbugs 作为编译期强制进行检测外（目前不强制编译期检测），其余作为辅助检测，对于个人能处理的检测结果**尽量处理**，对于部分比较苛刻的检测规则可忽略。
+Q: 比较苛刻、检测结果互相冲突、没有必要的检测如何处理？
+A: 提交 [SonarQube 忽略规则统计表 ](https://hewppr0rxd.feishu.cn/sheets/shtcn7qYPmqcBCl3zwH0zSntxsg#4b971c) 定期进行规则更新。
 
-Q: 忽略的规则如何统一？
-A: 通过 GitLab 申请忽略检测 [SonarQube 忽略规则统计表](https://hewppr0rxd.feishu.cn/sheets/shtcn7qYPmqcBCl3zwH0zSntxsg#4b971c)
-
-**1.1 Idea-Analyze**
+**1.1 Idea-Analyze-Inspect Code**
 
 > Idea 自带，阿里编码规约默认集成到该检测中 「Ali-Check」
 
 - 代码检测 Analyze -> Inspect Code
 - 矩阵依赖分析 Analyze -> Dependency Matrix 良好的代码依赖应该为「倒三角模式」
+- 该检测侧重点：比较全面，根据实际情况酌情解决，在检测结果合理情况下尽量解决。
 
 **1.2 阿里编码规约**
  
 安装插件 [Alibaba Java Coding Guidelines](https://plugins.jetbrains.com/plugin/10046-alibaba-java-coding-guidelines) ，
-开启实时扫描 `Tools -> 阿里编码规约 -> 打开实时扫描`，手动分析右键分析内容->SonarLint。
+- 开启实时扫描 `Tools -> 阿里编码规约 -> 打开实时扫描`
+- 手动分析右键分析内容-> 编码规范扫描（推荐直接使用 Idea-Analyze-Inspect Code 进行扫描）。
+- 该检测侧重点：注释规范性、类命名规范、魔法值等实用性问题。
 
 **1.3 SonarLint**
 
 安装插件 [SonarLint](https://plugins.jetbrains.com/plugin/7973-sonarlint) ，
-开启自动分析 `Preferences -> Tools -> SonarLint -> 勾选 Automatically trigger analysis`，手动分析右键分析内容-> 编码规约扫描。
+- 开启自动分析 `Preferences -> Tools -> SonarLint -> 勾选 Automatically trigger analysis`
+- 手动分析右键分析内容-> SonarLint。
+- 该检测侧重点：比较全面，一些基本的规约问题，编程过程中容易忽略的 bugs 及漏洞。
 
 **1.4 Spotbugs**
 
 使用方法参考 [.spotbugs-gaolv-java](编码规范/java/.spotbugs-gaolv-java.xml) 文档注释介绍。
 
-我们在 CI 构建中默认集成了 SonarQube 扫描，规则主要为 spotbugs + SonarLint，侧重于「Bugs」「漏洞扫描」「坏味道」扫描，请在正式提交代码前本地执行扫描后再提交。
+- 该检测侧重点：bugs 、漏洞、性能、安全。
+
+**总结：SonarQube**
+我们在 CI 构建中默认集成了 SonarQube 扫描，检测规则主要为 spotbugs + SonarLint，侧重于「Bugs」「漏洞扫描」「坏味道」扫描，请在正式提交代码前本地执行扫描后再提交。
+
+基于以上 4 种规则的扫描及问题解决后基本上在 SonarQube 检测结果基本通过。
 
 ### 2. 格式化
 格式化配置参考『java-开发环境准备』内容，保证代码样式一致性。
