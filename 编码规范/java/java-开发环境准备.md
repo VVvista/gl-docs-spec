@@ -19,15 +19,16 @@ git config --global user.email "[email address]"
 
 ## 三、Idea 工具
 
+${gl-docs-spec} 为本地 gl-docs-spec 仓库位置。所有依赖配置文件直接指向 ${gl-docs-spec} 项目本地路径以保证文件实时更新生效。
+
 ### 1. 配置格式化模板
 安装格式化插件 [Idea-EclipseCodeFormatter](https://plugins.jetbrains.com/plugin/index?xmlId=EclipseCodeFormatter) ，
-> 我们推荐下载当前项目至本地，所有依赖配置文件直接指向该项目本地路径以保证实时更新。
 
 配置针对我们项目组的 profile->gl，所有项目选择该 profile 即可。
 
-- 使用 [java-eclipse-formatter.xml](编码规范/java/java-eclipse-formatter.xml) 文件进行代码格式化。
+- 使用 `${gl-docs-spec}/编码规范/java/java-eclipse-formatter.xml` 文件进行代码格式化。
 
-- 使用 [java-eclipse.importorder](编码规范/java/java-eclipse.importorder) 文件指定包引入顺序。
+- 使用 `${gl-docs-spec}/编码规范/java/java-eclipse.importorder` 文件指定包引入顺序。
 
 ![EclipseCodeFormatter](../../_images/java/EclipseCodeFormatter.png)
 
@@ -63,15 +64,13 @@ A: 提交 [SonarQube 忽略规则统计表 ](https://hewppr0rxd.feishu.cn/sheets
 #### 2.4 SpotBugs
 安装插件 [SpotBugs](https://plugins.jetbrains.com/plugin/14014-spotbugs) 该检测侧重点：bugs 、漏洞、性能、安全。
 
-> 我们推荐下载当前项目至本地，所有依赖配置文件直接指向该项目本地路径以保证实时更新。
-
 **配置插件：**
 - general：安卓可添加对应安卓 Plugins，推荐打开编译分析
  
 ![SpotBugs-setting-general](../../_images/java/SpotBugs-setting-general.png)
 
 - Annotate 配置注解为：com.gaolv.annotations.SuppressFBWarnings
-- filter-> includeFilterFiles 添加过滤文件：${gl-docs-spec}/编码规范/java/spotbugs-gaolv-java.xml
+- filter-> includeFilterFiles 添加过滤文件：`${gl-docs-spec}/编码规范/java/spotbugs-gaolv-java.xml`
 > spotbugs-gaolv-java.xml 文件内定义了 SonarQube 中 SpotBugs 扫描的规则，该规则根据实际情况阶段性更新直到达到稳定阶段。
 
 **分析：**
