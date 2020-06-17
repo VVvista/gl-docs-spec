@@ -27,7 +27,7 @@ Q: 检测的标准是什么？
 A: 除 Spotbugs 作为编译期强制进行检测外（目前不强制编译期检测），其余作为辅助检测，对于个人能处理的检测结果**尽量处理**，对于部分比较苛刻的检测规则可忽略。
 
 Q: 忽略的规则如何统一？
-A: 通过 GitLab 申请忽略检测 [gl-docs-spec/issues](https://dev-git.gaolvzongheng.com/glzh-docs/gl-docs-spec/issues) ,申请标题 [忽略检测-java-{检测类型}-{BUG-CODE}]。
+A: 通过 GitLab 申请忽略检测 [SonarQube 忽略规则统计表](https://hewppr0rxd.feishu.cn/sheets/shtcn7qYPmqcBCl3zwH0zSntxsg#4b971c)
 
 **1.1 Idea-Analyze**
 

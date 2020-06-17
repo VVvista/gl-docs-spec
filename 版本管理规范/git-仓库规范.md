@@ -23,5 +23,9 @@
 | 数据处理 | gb-      |
 | 运维     | go-      |
 
-默认以 `com.gaolv.xx` 作为包及组织命名。
+## 其他命名
+包名：`com.gaolv.{服务}`
+groupId：`com.gaolv`
+artifactId：{服务名}
+        
 
