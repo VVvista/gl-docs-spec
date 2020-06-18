@@ -27,7 +27,7 @@ jenkins backend/gl-id-center --> gitlab  glzh/backend/basic-services/gl-id-cente
 
 Jenkins 流水线类型，选择 `多分支流水线` , 触发通过 Jenkinsfile, 添加完成之后记得在分支源里 Default 字段，选择不通过 SCM 自动触发。
 
-![jenkins](../_images/ops/jenkins/jenkins01.jpg)
+![jenkins](../_images/ops/jenkins/jenkins01.jpg )
 
 
 ## 自动化发布流程

@@ -10,12 +10,14 @@
 </head>
 <body>
   <div id="app"></div>
+  <!--Edit on github-->
+  <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
   <script>
 
       window.$docsify = {
           name: '高旅-项目规范',
           repo: 'https://dev-git.gaolvzongheng.com/glzh-docs/gl-docs-spec',
-          loadNavbar: true,
+          loadNavbar: false,
           loadSidebar: true, // 加载自定义侧边栏
           maxLevel: 3, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
           subMaxLevel: 0, // 生成目录的最大层级
@@ -25,9 +27,27 @@
               '/.*/_navbar.md': '/_navbar.md' // 顶部导航栏
           },
           coverpage: true,
+          search: {
+              maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+              noData: '找不到结果',//搜索不到结果时显示
+              paths: 'auto',//自动
+              placeholder: '搜索',//搜索框提示
+              depth: 1
+          },
+          plugins: [
+              EditOnGithubPlugin.create('https://github.com/VVvista/gl-docs-spec/blob/master/'),
+          ]
+
+
       }
 
   </script>
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+  <!-- 图片缩放 -->
+  <script src="//unpkg.com/docsify/lib/plugins/zoom-image.js"></script>
+  <!-- 全文搜索 -->
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
 </html>
